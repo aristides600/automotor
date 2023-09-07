@@ -16,6 +16,7 @@ public class Usuario {
     @OneToOne
     @JoinColumn(name = "rol_id")
     private Rol rol;
+
     private Boolean usu_estado;
 
     public long getUsu_id() {
