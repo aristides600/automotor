@@ -18,7 +18,7 @@ public class Cliente {
     @Temporal(TemporalType.DATE)
     private Date cli_fechanac;
     private String cli_mail;
-    private int cli_cuit;
+    private int cli_dni;
     @Temporal(TemporalType.DATE)
     private Date cli_fechareg;
     private boolean cli_estado;
@@ -93,12 +93,12 @@ public class Cliente {
         this.cli_mail = cli_mail;
     }
 
-    public int getCli_cuit() {
-        return cli_cuit;
+    public int getCli_dni() {
+        return cli_dni;
     }
 
-    public void setCli_cuit(int cli_cuit) {
-        this.cli_cuit = cli_cuit;
+    public void setCli_dni(int cli_dni) {
+        this.cli_dni = cli_dni;
     }
 
     public Date getCli_fechareg() {
