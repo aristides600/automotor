@@ -14,4 +14,5 @@ public class MarcaAuto {
     @GenericGenerator(name = "native", strategy = "native")
     private long mar_id;
     private String mar_nombre;
+
 }

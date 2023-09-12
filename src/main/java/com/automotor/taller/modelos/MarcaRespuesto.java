@@ -2,10 +2,9 @@ package com.automotor.taller.modelos;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class MarcaRespuesto {
@@ -14,4 +13,7 @@ public class MarcaRespuesto {
     @GenericGenerator(name = "native", strategy = "native")
     private long mre_id;
     private String mre_nombre;
+
+    @OneToMany(mappedBy="marcaRespuesto", fetch= FetchType.EAGER)
+    private List<Respuesto> marcaRespuestos = new ArrayList<>();
 }
