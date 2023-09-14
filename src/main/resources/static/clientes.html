@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Taller Mecánico</title>
+    <!-- Incluye los archivos CSS y JavaScript de Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Taller Mecánico</h1>
+
+        <!-- CRUD de Clientes -->
+        <div class="card mb-3">
+            <div class="card-header">Clientes</div>
+            <div class="card-body">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#clienteModal">Agregar Cliente</button>
+                <table class="table mt-3">
+                    <thead>
+                        <tr>
+                            <th>DNI</th>
+                            <th>Apellido</th>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Domicilio</th>
+                            <th>Fecha de Nacimiento</th>
+                            <th>CP</th>
+                            <th>Condición de IVA</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cliente-list">
+                        <!-- La lista de clientes se llenará aquí -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- CRUD de Vehículos -->
+        <div class="card">
+            <div class="card-header">Vehículos</div>
+            <div class="card-body">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#vehiculoModal">Agregar Vehículo</button>
+                <table class="table mt-3">
+                    <thead>
+                        <tr>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Color</th>
+                            <th>Año</th>
+                            <th>Carrocería</th>
+                            <th>Motor</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="vehiculo-list">
+                        <!-- La lista de vehículos se llenará aquí -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modales para Agregar Clientes y Vehículos -->
+    <!-- Agregar Cliente -->
+    <div class="modal fade" id="clienteModal" tabindex="-1" role="dialog" aria-labelledby="clienteModalLabel" aria-hidden="true">
+        <!-- El contenido del modal se generará con JavaScript -->
+    </div>
+
+    <!-- Agregar Vehículo -->
+    <div class="modal fade" id="vehiculoModal" tabindex="-1" role="dialog" aria-labelledby="vehiculoModalLabel" aria-hidden="true">
+        <!-- El contenido del modal se generará con JavaScript -->
+    </div>
+
+    <script src="clientes.js"></script>
+</body>
+</html>

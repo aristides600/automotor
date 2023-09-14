@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD de Repuestos</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>CRUD de Repuestos</h1>
+        <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#agregarModal">Agregar Repuesto</button>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Marca de Repuesto ID</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="repuestos-table">
+                <!-- La lista de repuestos se llenará aquí -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal para Agregar Repuesto -->
+    <div class="modal fade" id="agregarModal" tabindex="-1" role="dialog" aria-labelledby="agregarModalLabel" aria-hidden="true">
+        <!-- El contenido del modal se generará con JavaScript -->
+    </div>
+
+    <!-- Modal para Editar Repuesto -->
+    <div class="modal fade" id="editarModal" tabindex="-1" role="dialog" aria-labelledby="editarModalLabel" aria-hidden="true">
+        <!-- El contenido del modal se generará con JavaScript -->
+    </div>
+
+    <!-- Modal para Eliminar Repuesto -->
+    <div class="modal fade" id="eliminarModal" tabindex="-1" role="dialog" aria-labelledby="eliminarModalLabel" aria-hidden="true">
+        <!-- El contenido del modal se generará con JavaScript -->
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="respuestos.js"></script>
+</body>
+</html>

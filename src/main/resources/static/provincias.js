@@ -1,8 +1,8 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("provinceForm");
     const messageDiv = document.getElementById("message");
 
-    form.addEventListener("submit", function(event) {
+    form.addEventListener("submit", function (event) {
         event.preventDefault();
 
         const provinceName = document.getElementById("provinceName").value;
@@ -20,13 +20,13 @@ document.addEventListener("DOMContentLoaded", function() {
             },
             body: JSON.stringify(provincia)
         })
-        .then(response => response.json())
-        .then(data => {
-            messageDiv.textContent = `Provincia "${data.nombre}" dada de alta correctamente.`;
-        })
-        .catch(error => {
-            console.error("Error al realizar la petición:", error);
-            messageDiv.textContent = "Hubo un error al dar de alta la provincia.";
-        });
+            .then(response => response.json())
+            .then(data => {
+                messageDiv.textContent = `Provincia "${data.pro_nombre}" dada de alta correctamente.`; // Corregido aquí
+            })
+            .catch(error => {
+                console.error("Error al realizar la petición:", error);
+                messageDiv.textContent = "Hubo un error al dar de alta la provincia.";
+            });
     });
 });

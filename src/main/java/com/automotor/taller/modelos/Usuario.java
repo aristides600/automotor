@@ -3,6 +3,8 @@ package com.automotor.taller.modelos;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Usuario {
@@ -16,6 +18,7 @@ public class Usuario {
     @OneToOne
     @JoinColumn(name = "rol_id")
     private Rol rol;
+
 
     private Boolean usu_estado;
 

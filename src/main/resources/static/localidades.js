@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
             loc_nombre: nombre
         };
 
-        fetch(`/api/localidad/${provinciaId}`, {
+        fetch(`/api/localidades/${provinciaId}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
