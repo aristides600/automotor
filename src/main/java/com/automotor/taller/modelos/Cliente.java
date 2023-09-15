@@ -1,9 +1,12 @@
 package com.automotor.taller.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Cliente {
@@ -34,6 +37,10 @@ public class Cliente {
     @OneToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
+
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private List<Vehiculo> vehiculos = new ArrayList<>();
+
     public Cliente() {
     }
 
@@ -133,6 +140,7 @@ public class Cliente {
         this.localidad = localidad;
     }
 
+    @JsonIgnore
     public Usuario getUsuario() {
         return usuario;
     }

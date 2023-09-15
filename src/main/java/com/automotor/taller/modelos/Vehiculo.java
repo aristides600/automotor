@@ -20,6 +20,17 @@ public class Vehiculo {
     @ManyToOne
     @JoinColumn(name = "marcaauto_id")
     private MarcaAuto marcaAuto;
+//funciona
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
+
+    @ManyToOne
+    @JoinColumn(name = "color_id")
+    private Color color;
+    @ManyToOne
+    @JoinColumn(name = "localidad_id")
+    private Localidad localidad;
 
     public long getVeh_id() {
         return veh_id;
@@ -85,17 +96,9 @@ public class Vehiculo {
         this.color = color;
     }
 
-    public List<Orden> getOrdenes() {
-        return ordenes;
-    }
-
-    public void setOrdenes(List<Orden> ordenes) {
-        this.ordenes = ordenes;
-    }
-
     @ManyToOne
-    @JoinColumn(name = "color_id")
-    private Color color;
-    @OneToMany(mappedBy="vehiculo", fetch= FetchType.EAGER)
+    @JoinColumn(name = "vehiculo_id")
+    private Vehiculo vehiculo;
+    @OneToMany(mappedBy = "vehiculo", cascade = CascadeType.ALL)
     private List<Orden> ordenes = new ArrayList<>();
 }

@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Taller Mecánico</title>
+    <title>Taller Automotor</title>
     <!-- Incluye los archivos CSS y JavaScript de Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
-<body>
+
+<body id="app">
     <div class="container mt-5">
-        <h1>Taller Mecánico</h1>
+        <h1>Taller Automotor</h1>
 
         <!-- CRUD de Clientes -->
         <div class="card mb-3">
@@ -23,16 +25,31 @@
                             <th>DNI</th>
                             <th>Apellido</th>
                             <th>Nombre</th>
-                            <th>Email</th>
                             <th>Domicilio</th>
+                            <th>Correo Electrónico</th>
                             <th>Fecha de Nacimiento</th>
-                            <th>CP</th>
-                            <th>Condición de IVA</th>
+                            <th>Fecha de Registro</th>
+                            <th>Estado</th>
+                            <th>Contribuyente ID</th>
+                            <th>Localidad ID</th>
+                            <th>Usuario ID</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="cliente-list">
-                        <!-- La lista de clientes se llenará aquí -->
+                        <tr v-for="cliente in clientes" :key="cliente.id">
+                            <td>{{ cliente.cli_dni }}</td>
+                            <td>{{ cliente.cli_apellido }}</td>
+                            <td>{{ cliente.cli_nombre }}</td>
+                            <td>{{ cliente.cli_domicilio }}</td>
+                            <td>{{ cliente.cli_mail }}</td>
+                            <td>{{ cliente.cli_fechanac }}</td>
+                            <td>{{ cliente.cli_fechareg }}</td>
+                            <td>{{ cliente.cli_estado }}</td>
+                            <td>{{ cliente.contribuyente_id }}</td>
+                            <td>{{ cliente.localidad_id }}</td>
+                            <td>{{ cliente.usuario_id }}</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -42,21 +59,29 @@
         <div class="card">
             <div class="card-header">Vehículos</div>
             <div class="card-body">
-                <button class="btn btn-primary" data-toggle="modal" data-target="#vehiculoModal">Agregar Vehículo</button>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#vehiculoModal">Agregar
+                    Vehículo</button>
                 <table class="table mt-3">
                     <thead>
                         <tr>
-                            <th>Marca</th>
-                            <th>Modelo</th>
-                            <th>Color</th>
-                            <th>Año</th>
-                            <th>Carrocería</th>
-                            <th>Motor</th>
+                            <th>DNI</th>
+                            <th>Apellido</th>
+                            <th>Nombre</th>
+                            <th>Domicilio</th>
+                            <th>Mail</th>
+                            <th>Fecha de Nacimiento</th>
+                            <th>Fecha de Registro</th>
+                            <th>Estado</th>
+                            <th>Contribuyente ID</th>
+                            <th>Localidad ID</th>
+                            <th>Usuario ID</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody id="vehiculo-list">
-                        <!-- La lista de vehículos se llenará aquí -->
+                        <!-- <tr v-for="vehiculo in clientes.vehiculos" :key="cliente.id">
+
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
@@ -65,15 +90,19 @@
 
     <!-- Modales para Agregar Clientes y Vehículos -->
     <!-- Agregar Cliente -->
-    <div class="modal fade" id="clienteModal" tabindex="-1" role="dialog" aria-labelledby="clienteModalLabel" aria-hidden="true">
+    <div class="modal fade" id="clienteModal" tabindex="-1" role="dialog" aria-labelledby="clienteModalLabel"
+        aria-hidden="true">
         <!-- El contenido del modal se generará con JavaScript -->
     </div>
 
     <!-- Agregar Vehículo -->
-    <div class="modal fade" id="vehiculoModal" tabindex="-1" role="dialog" aria-labelledby="vehiculoModalLabel" aria-hidden="true">
+    <div class="modal fade" id="vehiculoModal" tabindex="-1" role="dialog" aria-labelledby="vehiculoModalLabel"
+        aria-hidden="true">
         <!-- El contenido del modal se generará con JavaScript -->
     </div>
 
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="clientes.js"></script>
 </body>
+
 </html>

@@ -4,6 +4,8 @@ package com.automotor.taller.modelos;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Localidad {
@@ -15,6 +17,8 @@ public class Localidad {
     @ManyToOne
     @JoinColumn(name = "provincia_id")
     private Provincia provincia;
+    @OneToMany(mappedBy = "localidad", cascade = CascadeType.ALL)
+    private List<Vehiculo> vehiculos = new ArrayList<>();
 
     public Localidad() {
     }

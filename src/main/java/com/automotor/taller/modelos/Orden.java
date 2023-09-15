@@ -24,9 +24,7 @@ public class Orden {
     private float ord_importeres;
 
     private Boolean ord_estado;
-    @OneToOne
-    @JoinColumn(name = "vehiculo_id")
-    private Vehiculo vehiculo;
+
     @OneToOne
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
@@ -161,6 +159,9 @@ public class Orden {
     @OneToOne
     @JoinColumn(name = "baja_id")
     private BajaOrden bajaOrden;
+    @ManyToOne
+    @JoinColumn(name = "vehiculo_id")
+    private Vehiculo vehiculo;
     @OneToMany(mappedBy="orden", fetch= FetchType.EAGER)
     private List<DetalleOrden> detalleOrdenes = new ArrayList<>();
 

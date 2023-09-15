@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alta de Provincia</title>
 </head>
-<body>
+<body id="app">
     <h1>Alta de Provincia</h1>
-    <form id="provinceForm">
+    <form id="provinceForm" v-on:submit.prevent="submitForm">
         <label for="provinceName">Nombre de la provincia:</label>
-        <input type="text" id="provinceName" name="provinceName" required>
+        <input type="text" id="provinceName" name="provinceName" v-model="pro_nombre" required>
         <button type="submit" id="submitButton">Dar de alta</button>
     </form>
     <div id="message"></div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./provincias.js"></script>
 </body>
 </html>

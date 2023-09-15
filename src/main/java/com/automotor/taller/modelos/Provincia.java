@@ -1,5 +1,6 @@
 package com.automotor.taller.modelos;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -36,6 +37,7 @@ public class Provincia {
         this.pro_nombre = pro_nombre;
     }
 
+    @JsonIgnore
     public List<Localidad> getLocalidades() {
         return localidades;
     }
@@ -48,4 +50,8 @@ public class Provincia {
         localidad.setProvincia(this);
         localidades.add(localidad);
     }
+
+
+
+
 }
