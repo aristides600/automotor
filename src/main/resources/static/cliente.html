@@ -36,13 +36,13 @@
             </div>
             <div class="mb-3">
                 <label for="fechaAlta">Fecha de Alta:</label>
-                <!-- <input type="date" id="fechaAlta" v-model="cliente.cli_fechareg" class="form-control" required> -->
-                <input type="date" id="fechaAlta" name="fechaAlta" v-model="cliente.cli_fechareg" readonly>
+                <input type="date" id="fechaAlta" v-model="cliente.cli_fechareg" class="form-control" required>
+                <!-- <input type="date" id="fechaAlta" name="fechaAlta" v-model="cliente.cli_fechareg" readonly> -->
             </div>
             <div class="mb-3">
                 <label for="fechaNacimiento">Fecha de Nacimiento:</label>
                 <input type="date" id="fechaNacimiento" v-model="cliente.cli_fechanac" class="form-control" required>
-                
+
             </div>
             <div class="mb-3">
                 <label for="estado">Estado:</label>
@@ -51,10 +51,10 @@
             <div class="mb-3">
                 <label for="localidad">Localidad:</label>
                 <select id="localidad" v-model="cliente.localidad" class="form-select" required>
-                    <option value="1">Localidad 1</option>
-                    <option value="2">Localidad 2</option>
-                    <option value="3">Localidad 3</option>
-                    <!-- Agrega opciones desde la API aquí -->
+                    <option value="" disabled>Seleccione una localidad</option>
+                    <option v-for="localidad in localidades" :key="localidad.loc_id" :value="localidad.loc_id">
+                        {{ localidad.loc_nombre }}
+                    </option>
                 </select>
             </div>
             <div class="mb-3">
@@ -69,10 +69,13 @@
             <div class="mb-3">
                 <label for="contribuyente">Contribuyente:</label>
                 <select id="contribuyente" v-model="cliente.contribuyente" class="form-select" required>
-                    <option value="1">Contribuyente 1</option>
-                    <option value="2">Contribuyente 2</option>
-                    <option value="3">Contribuyente 3</option>
-                    <!-- Agrega opciones desde la API aquí -->
+
+                    <option value="" disabled>Seleccione una contribuyente</option>
+                    <option v-for="contribuyente in contribuyentes" :key="contribuyente.con_id"
+                        :value="contribuyente.con_id">
+                        {{ contribuyente.con_nombre }}
+                    </option>
+
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Guardar</button>
@@ -109,9 +112,9 @@
                     <td>{{ cliente.contribuyente_id }}</td>
                     <td>{{ cliente.localidad_id }}</td>
                     <td>{{ cliente.usuario_id }}</td>
-                    
-                        <button class="btn btn-info btn-sm" @click="editarCliente(cliente)">Editar</button>
-                        <button class="btn btn-danger btn-sm" @click="eliminarCliente(cliente.id)">Eliminar</button>
+
+                    <button class="btn btn-info btn-sm" @click="editarCliente(cliente)">Editar</button>
+                    <button class="btn btn-danger btn-sm" @click="eliminarCliente(cliente.id)">Eliminar</button>
                     </td>
                 </tr>
             </tbody>

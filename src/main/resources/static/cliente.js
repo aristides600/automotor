@@ -15,16 +15,45 @@ const app = Vue.createApp({
                 contribuyente: '',
             },
             clientes: [], // Aquí se almacenarán los clientes obtenidos de la API
+
+            contribuyentes: [],
+            contribuyente: "",
+            localidades: [],
+            localidad: "",
         };
+
     },
+
+
     mounted() {
-        // Obtener la fecha actual y formatearla como "YYYY-MM-DD"
-        const fechaHoy = new Date();
-        const año = fechaHoy.getFullYear();
-        const mes = String(fechaHoy.getMonth() + 1).padStart(2, '0');
-        const día = String(fechaHoy.getDate()).padStart(2, '0');
-        this.fechaAlta = `${año}-${mes}-${día}`;
+        // Llamar a la API para obtener la lista de contribuyentes
+        fetch('/api/contribuyentes')
+            .then((response) => response.json())
+            .then((contribuyentes) => {
+                this.contribuyentes = contribuyentes;
+            });
+
+        // Llamar a la API para obtener la lista de localidades
+        fetch('/api/localidades')
+            .then((response) => response.json())
+            .then((localidades) => {
+                this.localidades = localidades;
+            });
     },
+    // mounted() {
+    //     // Obtener la fecha actual y formatearla como "YYYY-MM-DD"
+    //     const fechaHoy = new Date();
+    //     const año = fechaHoy.getFullYear();
+    //     const mes = String(fechaHoy.getMonth() + 1).padStart(2, '0');
+    //     const día = String(fechaHoy.getDate()).padStart(2, '0');
+    //     this.fechaAlta = `${año}-${mes}-${día}`;
+    // },
+
+
+
+
+
+
     methods: {
         async cargarClientes() {
             try {
