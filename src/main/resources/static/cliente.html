@@ -1,18 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD de Clientes</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/dist/css/bootstrap.min.css">
 </head>
+
 <body>
     <div id="app" class="container mt-5">
-        <h1>CRUD de Clientes</h1>
+        <h1 class="display-4">CRUD de Clientes</h1>
 
-        <button class="btn btn-primary mb-3" @click="nuevoCliente">Agregar Cliente</button>
+        <!-- Formulario para agregar/editar cliente -->
+        <form v-on:submit.prevent="guardarCliente">
+            <div class="mb-3">
+                <label for="dni">DNI:</label>
+                <input type="text" id="dni" v-model="cliente.cli_dni" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="apellido">Apellido:</label>
+                <input type="text" id="apellido" v-model="cliente.cli_apellido" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" v-model="cliente.cli_nombre" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="domicilio">Domicilio:</label>
+                <input type="text" id="domicilio" v-model="cliente.cli_domicilio" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="email">Email:</label>
+                <input type="email" id="email" v-model="cliente.cli_mail" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="fechaAlta">Fecha de Alta:</label>
+                <!-- <input type="date" id="fechaAlta" v-model="cliente.cli_fechareg" class="form-control" required> -->
+                <input type="date" id="fechaAlta" name="fechaAlta" v-model="cliente.cli_fechareg" readonly>
+            </div>
+            <div class="mb-3">
+                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="fechaNacimiento" v-model="cliente.cli_fechanac" class="form-control" required>
+                
+            </div>
+            <div class="mb-3">
+                <label for="estado">Estado:</label>
+                <input type="text" id="estado" v-model="cliente.cli_estado" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="localidad">Localidad:</label>
+                <select id="localidad" v-model="cliente.localidad" class="form-select" required>
+                    <option value="1">Localidad 1</option>
+                    <option value="2">Localidad 2</option>
+                    <option value="3">Localidad 3</option>
+                    <!-- Agrega opciones desde la API aquí -->
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="usuario">Usuario:</label>
+                <select id="usuario" v-model="cliente.usuario" class="form-select" required>
+                    <option value="1">Usuario 1</option>
+                    <option value="2">Usuario 2</option>
+                    <option value="3">Usuario 3</option>
+                    <!-- Agrega opciones desde la API aquí -->
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="contribuyente">Contribuyente:</label>
+                <select id="contribuyente" v-model="cliente.contribuyente" class="form-select" required>
+                    <option value="1">Contribuyente 1</option>
+                    <option value="2">Contribuyente 2</option>
+                    <option value="3">Contribuyente 3</option>
+                    <!-- Agrega opciones desde la API aquí -->
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        </form>
 
-        <table class="table">
+        <!-- Tabla de clientes -->
+        <table class="table mt-5">
             <thead>
                 <tr>
                     <th>DNI</th>
@@ -30,33 +97,29 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="cliente in clientes" :key="cliente.dni">
-                    <td>{{ cliente.dni }}</td>
-                    <td>{{ cliente.apellido }}</td>
-                    <td>{{ cliente.nombre }}</td>
-                    <td>{{ cliente.domicilio }}</td>
-                    <td>{{ cliente.mail }}</td>
-                    <td>{{ cliente.fechaNacimiento }}</td>
-                    <td>{{ cliente.fechaRegistro }}</td>
-                    <td>{{ cliente.estado }}</td>
+                <tr v-for="cliente in clientes" :key="cliente.id">
+                    <td>{{ cliente.cli_dni }}</td>
+                    <td>{{ cliente.cli_apellido }}</td>
+                    <td>{{ cliente.cli_nombre }}</td>
+                    <td>{{ cliente.cli_domicilio }}</td>
+                    <td>{{ cliente.cli_mail }}</td>
+                    <td>{{ cliente.cli_fechanac }}</td>
+                    <td>{{ cliente.cli_fechareg }}</td>
+                    <td>{{ cliente.cli_estado }}</td>
                     <td>{{ cliente.contribuyente_id }}</td>
                     <td>{{ cliente.localidad_id }}</td>
                     <td>{{ cliente.usuario_id }}</td>
-                    <td>
+                    
                         <button class="btn btn-info btn-sm" @click="editarCliente(cliente)">Editar</button>
-                        <button class="btn btn-danger btn-sm" @click="eliminarCliente(cliente)">Eliminar</button>
+                        <button class="btn btn-danger btn-sm" @click="eliminarCliente(cliente.id)">Eliminar</button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
 
-    <!-- Modal para Agregar/Editar Cliente -->
-    <div class="modal fade" id="clienteModal" tabindex="-1" role="dialog" aria-labelledby="clienteModalLabel" aria-hidden="true">
-        <!-- El contenido del modal se generará con Vue.js -->
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <script src="cliente.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+    <script src="./cliente.js"></script>
 </body>
+
 </html>

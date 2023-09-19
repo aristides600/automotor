@@ -1,32 +1,29 @@
 <!DOCTYPE html>
-
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alta de Provincia</title>
+    <title>Alta de Marca de Vehiculos</title>
     <!-- Agrega el enlace al archivo CSS de Bootstrap 5 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/dist/css/bootstrap.min.css">
 </head>
 <body id="app">
     <div class="container mt-5">
-        <h1 class="display-4">Alta de Provincia</h1>
-        <form id="provinceForm" v-on:submit.prevent="submitForm">
+        <h1 class="display-4">Alta de Marca de Vehiculos</h1>
+        <form id="marcaVehiculoForm" v-on:submit.prevent="submitForm">
             <div class="mb-3">
-                <label for="provinceName" class="form-label">Nombre de la provincia:</label>
-                <input type="text" id="provinceName" name="provinceName" class="form-control" v-model="pro_nombre" required>
+                <label for="marcaVehiculoNombre" class="form-label">Marca Vehiculo:</label>
+                <input type="text" id="marcaVehiculoNombre" name="marcaVehiculoNombre" class="form-control" v-model="mar_nombre" required>
             </div>
             <button type="submit" id="submitButton" class="btn btn-primary">Dar de alta</button>
         </form>
         <div id="message" class="mt-3"></div>
     </div>
     
-    <!-- Agrega el script de Vue.js y Bootstrap 5 -->
+    <!-- Agrega los scripts de Vue.js y Bootstrap 5 -->
     <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
     <!-- Agrega el script de Bootstrap 5 (Popper.js y jQuery ya no son necesarios en Bootstrap 5) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.7.0/dist/js/bootstrap.min.js"></script>
-
-  
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="./provincias.js"></script>
+    <script src="./marcaautos.js"></script>
 </body>
 </html>

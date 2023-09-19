@@ -10,7 +10,7 @@ public class Modelo {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
     private long mod_id;
-    private String cli_apellido;
+    private String mod_nombre;
     @ManyToOne
     @JoinColumn(name = "marca_id")
     private MarcaAuto marcaAuto;

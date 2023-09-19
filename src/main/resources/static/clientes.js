@@ -7,7 +7,7 @@ const app = Vue.createApp({
     methods: {
         async cargarClientes() {
             try {
-                const response = await fetch("/api/clientes");
+                const response = await fetch('/api/clientes');
                 if (!response.ok) {
                     throw new Error('Error al obtener los servicios de decoración');
                 }
